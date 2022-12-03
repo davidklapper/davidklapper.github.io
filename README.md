@@ -9,8 +9,9 @@ I am also deploying AI solutions with custom FPGA and GPU solutions.
 [My personal site](https://github.com/davidklapper/davidklapper.github.io.git)
 
 ## Sythesized Art (these are not real people)
-![Img_0](resources/img_0.PNG  ) ![Img_1](resources/img_1.PNG  )
-![Img_2](resources/img_2.PNG  ) ![Img_3](resources/img_3.PNG  )
-![Img_4](resources/img_4.PNG  ) ![Img_5](resources/img_5.PNG  )
-![Img_6](resources/img_6.PNG  ) ![Img_7](resources/img_7.PNG  )
-![Img_8](resources/img_8.PNG  )
+<img src="" width=250> <img src="resources/img_.PNG width=250>
+<img src="resources/img_0.PNG width=250> <img src="resources/img_1.PNG width=250>
+<img src="resources/img_2.PNG width=250> <img src="resources/img_3.PNG width=250>
+<img src="resources/img_4.PNG width=250> <img src="resources/img_5.PNG width=250>
+<img src="resources/img_6.PNG width=250> <img src="resources/img_7.PNG width=250>
+<img src="resources/img_8.PNG width=250> 
