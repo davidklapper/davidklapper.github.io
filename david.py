@@ -18,4 +18,9 @@ def root_site():
 def about():
     return render_template('about.html')
 
+
+@app.route('/art/')
+def art():
+    return render_template('art.html')
+
 app.run(port=5004)
