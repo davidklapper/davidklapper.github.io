@@ -13,15 +13,24 @@ app.config.from_pyfile('config.py')
 
 @app.route("/")
 def root_site():
-    return render_template('index.html',utc_dt=datetime.datetime.utcnow())
+    mainbody = 'index.txt'
+    whoami = 'about.txt'
+    art = 'art.txt'
+    return render_template('index.html',
+                           utc_dt=datetime.datetime.utcnow(),
+                           mainbody=mainbody,
+                           whoami=whoami,
+                           art=art)
 
 @app.route('/about/')
 def about():
-    return render_template('about.html')
+    include_txt = 'about.txt'
+    return render_template('about.html',include_txt=include_txt)
 
 
 @app.route('/art/')
 def art():
-    return render_template('art.html')
+    include_txt = 'art.txt'
+    return render_template('art.html',include_txt=include_txt)
 
 app.run(port=5004)

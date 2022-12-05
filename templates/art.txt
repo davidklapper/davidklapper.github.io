@@ -1,0 +1,6 @@
+<h1>{% block title %} Synthetic art (these are not real people) {% endblock %}</h1>
+<img src="{{url_for('static',filename='resources/img_0.PNG')}}" width="250" height="250"> <img src="{{url_for('static',filename='resources/img_1.PNG')}}" width="250" height="250">
+<img src="{{url_for('static',filename='resources/img_2.PNG')}}" width="250" height="250"> <img src="{{url_for('static',filename='resources/img_3.PNG')}}" width="250" height="250">
+<img src="{{url_for('static',filename='resources/img_4.PNG')}}" width="250" height="250"> <img src="{{url_for('static',filename='resources/img_5.PNG')}}" width="250" height="250">
+<img src="{{url_for('static',filename='resources/img_6.PNG')}}" width="250" height="250"> <img src="{{url_for('static',filename='resources/img_7.PNG')}}" width="250" height="250">
+<img src="{{url_for('static',filename='resources/img_8.PNG')}}" width="250" height="250"> 

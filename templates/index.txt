@@ -1,0 +1,2 @@
+<h1>{% block title %} Personal website for David Klapper {% endblock %}</h1>
+Hello World!, this website is a Frozen-Flask demo for a Flask repo. This is my first Frozen-FlaskApp. Full application exists offline.
