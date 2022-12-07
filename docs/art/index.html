@@ -19,8 +19,10 @@
 
 	  function showSlide(n) {
 	      slides[index].classList.remove('active');
+	      slides[index].style.display = "none";
 	      index = (n + slides.length) % slides.length;
 	      slides[index].classList.add('active');
+	      slides[index].style.display = "block";
 	  }
 
 	  function prevSlide() {
