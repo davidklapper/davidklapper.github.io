@@ -5,32 +5,266 @@
     <meta charset="UTF-8">
     <title>  - David Klapper</title>
     <!-- colors 584b53 9d5c63 d6e3f8 fef5ef e4bb97 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+      $(document).ready( function(){
+	  var carousel = document.querySelector('.image-view-container');
+	  var slides = carousel.querySelectorAll('.image-view-container__slide');
+	  console.log(slides);
+	  var prev = carousel.querySelector('.image-view-container__prev');
+	  var next = carousel.querySelector('.image-view-container__next');
+	  var index = 0;
+	  var timer = null;
+
+	  function showSlide(n) {
+	      slides[index].classList.remove('active');
+	      index = (n + slides.length) % slides.length;
+	      slides[index].classList.add('active');
+	  }
+
+	  function prevSlide() {
+	      showSlide(index - 1);
+	  }
+
+	  function nextSlide() {
+	      showSlide(index + 1);
+	  }
+
+	  function startTimer() {
+	      timer = setInterval(function() {
+		  nextSlide();
+	      }, 3000);
+	  }
+
+	  function stopTimer() {
+	      clearInterval(timer);
+	  }
+
+	  prev.addEventListener('click', function() {
+	      console.log('prev');
+	      stopTimer();
+	      prevSlide();
+	      startTimer();
+	  });
+
+	  next.addEventListener('click', function() {
+	      stopTimer();
+	      nextSlide();
+	      startTimer();
+	  });
+
+      });
+    </script>
+    
     <style>
-      nav a {
-          color: #AB3428;
-          font-size: 2em;
-	  font-family:  "Comic Sans MS", "Comic Sans", cursive;
-          margin-left: 25px;
-          text-decoration: none;
+      body {
+	  font-family: "Roboto", sans-serif;
+	  background-color: #fafafa;
+	  color: #333333;
       }
 
+      h1, h2, h3, h4, h5, h6 {
+	  font-family: "Lobster", cursive;
+	  font-weight: bold;
+	  text-transform: uppercase;
+	  color: #6c5ce7;
+      }
+
+      a {
+	  color: #9b59b6;
+	  text-decoration: none;
+      }
+
+      a:hover {
+	  text-decoration: underline;
+      }
+
+      .container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	  padding: 20px;
+      }
+
+      .navigation {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 20px 0;
+      }
+
+      .navigation__logo {
+	  font-size: 18px;
+	  font-weight: bold;
+	  text-transform: uppercase;
+      }
+
+      .navigation__menu {
+	  display: flex;
+      }
+
+      .navigation__menu-item {
+	  margin-left: 20px;
+	  font-size: 16px;
+	  font-weight: bold;
+	  text-transform: uppercase;
+      }
+
+      .navigation__menu-item a {
+	  color: #9b59b6;
+	  text-decoration: none;
+      }
+
+      .navigation__menu-item a:hover {
+	  color: #8e44ad;
+	  text-decoration: underline;
+      }
+
+      .button {
+	  display: inline-block;
+	  padding: 10px 20px;
+	  background-color: #6c5ce7;
+	  color: #ffffff;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+      }
+
+      .button:hover {
+	  background-color: #8e44ad;
+      }
+      .content {
+	  margin: 20px;
+	  padding: 20px;
+	  background-color: #ffffff;
+	  color: #333333;
+	  font-size: 16px;
+	  line-height: 1.5;
+	  text-align: justify;
+      }
+      .image-view-container {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  margin: 20px 0;
+	  position: relative;
+	  overflow: hidden;
+      }
+
+      .image-view-container__slides {
+	  width: 100%;
+	  height: 100%;
+	  display: flex;
+	  transition: all 0.5s ease-in-out;
+      }
+
+      .image-view-container__slide {
+	  flex-shrink: 0;
+	  width: 100%;
+	  height: 100%;
+      }
+
+      .image-view-container__prev,
+      .image-view-container__next {
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  cursor: pointer;
+	  font-size: 30px;
+	  color: #ffffff;
+	  z-index: 1;
+	  transition: all 0.5s ease-in-out;
+      }
+
+      .image-view-container__prev:hover,
+      .image-view-container__next:hover {
+	  color: #9b59b6;
+      }
+
+      .image-view-container__prev {
+	  left: 20px;
+      }
+
+      .image-view-container__next {
+	  right: 20px;
+      }
+
+      .image-view {
+	  width: 100%;
+	  height: auto;
+	  max-width: 250px;
+	  margin: 0 auto;
+	  padding: 20px;
+	  background-color: #ffffff;
+	  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	  border-radius: 10px;
+      }
+
+      .image-view img {
+	  width: 100%;
+	  height: auto;
+	  max-width: 250px;
+	  border-radius: 10px;
+      }
     </style>
   </head>
   <body>
-    <nav>
-      <a href="/">David Klapper.</a>
-      <a href="/about">Who i am.</a>
-      <a href="/art">Synthetic art.</a>
+    <nav class="navigation">
+      <a href="#" class="navigation__logo">David Klapper</a>
+      <ul class="navigation__menu">
+	<li class="navigation__menu-item"><a href="/">Home</a></li>
+	<li class="navigation__menu-item"><a href="/about">Who i am.</a></li>
+	<li class="navigation__menu-item"><a href="/art">Synthetic art.</a></li>
+      </ul>
     </nav>
     <hr>
     <div class="content">
       
 <h1> Synthetic art (these are not real people) </h1>
-<img src="/static/resources/img_0.PNG" width="250" height="250"> <img src="/static/resources/img_1.PNG" width="250" height="250">
-<img src="/static/resources/img_2.PNG" width="250" height="250"> <img src="/static/resources/img_3.PNG" width="250" height="250">
-<img src="/static/resources/img_4.PNG" width="250" height="250"> <img src="/static/resources/img_5.PNG" width="250" height="250">
-<img src="/static/resources/img_6.PNG" width="250" height="250"> <img src="/static/resources/img_7.PNG" width="250" height="250">
-<img src="/static/resources/img_8.PNG" width="250" height="250"> 
+
+<div class="image-view-container">
+     <div class="image-view-container__prev">&lt;</div>
+     <div class="image-view-container__next">&gt;</div>
+     <div class="image-view-container__slides">
+     
+     	<div class="image-view-container__slide  active ">
+	     <img src="../static/resources/img_0.PNG" alt="Image 0" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_1.PNG" alt="Image 1" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_2.PNG" alt="Image 2" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_3.PNG" alt="Image 3" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_4.PNG" alt="Image 4" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_5.PNG" alt="Image 5" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_6.PNG" alt="Image 6" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_7.PNG" alt="Image 7" class="image-view">
+	</div>
+     
+     	<div class="image-view-container__slide ">
+	     <img src="../static/resources/img_8.PNG" alt="Image 8" class="image-view">
+	</div>
+     
+</div>
+</div>
 
     </div>
   </body>
