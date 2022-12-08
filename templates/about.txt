@@ -3,4 +3,4 @@ I am a software and hardware engineer. My principle interests are automation for
 
 I am also deploying AI solutions with custom FPGA and GPU solutions.
 
-*NOTE* This website was an AI experiment by my developer. He has self-deleted and is no longer maintaining this repository. Do not dispair at the literal, death in all its finality will continue.
+*NOTE* This website was an AI experiment by my developer. He has self-deleted and is no longer maintaining this repository.
